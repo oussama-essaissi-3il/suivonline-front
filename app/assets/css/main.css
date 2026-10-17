@@ -1,0 +1,160 @@
+/* ===== Couleurs de l'application (modifiables a un seul endroit) ===== */
+:root {
+  --bleu: #1e3a8a;
+  --bleu-clair: #3b82f6;
+  --fond: #f1f5f9;
+  --blanc: #ffffff;
+  --texte: #1e293b;
+  --gris: #64748b;
+  --bordure: #e2e8f0;
+  --rouge: #dc2626;
+  --vert: #16a34a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+}
+
+/* ===== Barre de menu ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 32px;
+  height: 60px;
+  background: var(--bleu);
+  color: var(--blanc);
+}
+.navbar .logo {
+  font-weight: 700;
+  font-size: 20px;
+}
+.navbar a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+.navbar a:hover,
+.navbar a.router-link-active {
+  color: var(--blanc);
+}
+.navbar .droite {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ===== Contenu ===== */
+.contenu {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+h1 {
+  margin-top: 0;
+}
+
+.carte {
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* ===== Tableaux ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid var(--bordure);
+}
+th {
+  color: var(--gris);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+/* ===== Formulaires ===== */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--gris);
+}
+input,
+select,
+textarea {
+  padding: 8px 10px;
+  border: 1px solid var(--bordure);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ===== Boutons ===== */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--bleu-clair);
+  color: var(--blanc);
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover {
+  opacity: 0.9;
+}
+button.danger {
+  background: var(--rouge);
+}
+button.secondaire {
+  background: var(--gris);
+}
+
+/* ===== Badges (statut, depassement) ===== */
+.badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge.ok {
+  background: #dcfce7;
+  color: var(--vert);
+}
+.badge.alerte {
+  background: #fee2e2;
+  color: var(--rouge);
+}
+.badge.neutre {
+  background: #e2e8f0;
+  color: var(--gris);
+}
+
+/* ===== Messages ===== */
+.erreur {
+  color: var(--rouge);
+  margin: 8px 0;
+}
