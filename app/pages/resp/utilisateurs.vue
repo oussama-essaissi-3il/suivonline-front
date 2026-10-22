@@ -21,7 +21,6 @@
 
   function modifier(u: Utilisateur) {
     enEdition.value = u.id
-    // Mot de passe vide = le back garde l'ancien
     form.value = {
       nom: u.nom,
       prenom: u.prenom,

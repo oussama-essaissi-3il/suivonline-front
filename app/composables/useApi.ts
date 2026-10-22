@@ -7,7 +7,7 @@ export const useApi = () => {
   const config = useRuntimeConfig()
   const { token, logout } = useAuth()
 
-  // Renvoie une fonction : api<Projet[]>('/projets')
+  // Renvoie une fonction
   return <T>(url: string, options: Options = {}) =>
     $fetch<T>(config.public.apiBase + url, {
       ...options,
@@ -18,7 +18,7 @@ export const useApi = () => {
     })
 }
 
-// Recupere le "message" de l'ErreurDto renvoye par le back (etape 5 du back)
+// Recupere le "message" de l'ErreurDto renvoye par le back
 export function messageErreur(e: any): string {
   return e?.data?.message ?? 'Une erreur est survenue'
 }

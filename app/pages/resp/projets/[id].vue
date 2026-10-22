@@ -3,7 +3,7 @@
 
   const api = useApi()
   const route = useRoute()
-  const id = route.params.id // le numero dans l'URL : /resp/projets/3 -> "3"
+  const id = route.params.id
 
   const detail = ref<ProjetDetail | null>(null)
   const tousLesDevs = ref<Utilisateur[]>([])
@@ -11,7 +11,6 @@
   const nouveauQuota = ref(0)
   const erreur = ref('')
 
-  // Les developpeurs qu'on peut encore affecter (pas deja affectes au projet)
   const devsDisponibles = computed(() =>
     tousLesDevs.value.filter(
       (u) =>
@@ -26,7 +25,6 @@
     nouveauQuota.value = detail.value.projet.quotaHeures
   }
 
-  // REGLE : le responsable affecte un developpeur a un projet
   async function affecter() {
     if (!devChoisi.value) return
     await api(`/projets/${id}/developpeurs/${devChoisi.value}`, {
@@ -43,7 +41,6 @@
     await charger()
   }
 
-  // REGLE : le responsable modifie le quota d'heures
   async function modifierQuota() {
     erreur.value = ''
     const p = detail.value!.projet
@@ -70,7 +67,6 @@
   <NuxtLink to="/resp/projets">← Retour aux projets</NuxtLink>
 
   <template v-if="detail">
-    <!-- Infos du projet -->
     <h1>
       {{ detail.projet.nom }}
       <span v-if="detail.projet.enDepassement" class="badge alerte"
@@ -98,7 +94,6 @@
       <p v-if="erreur" class="erreur">{{ erreur }}</p>
     </div>
 
-    <!-- Affectations (relation n,n) -->
     <div class="carte">
       <h3>Développeurs affectés</h3>
       <table>
@@ -124,7 +119,6 @@
       </form>
     </div>
 
-    <!-- Qui a contribue, combien de temps -->
     <div class="carte">
       <h3>Temps par développeur</h3>
       <table>
@@ -137,7 +131,6 @@
       </table>
     </div>
 
-    <!-- Toutes les contributions du projet -->
     <div class="carte">
       <h3>Contributions</h3>
       <table>

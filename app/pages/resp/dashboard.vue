@@ -3,7 +3,6 @@
 
   const api = useApi()
 
-  // Periode par defaut : du 1er du mois a aujourd'hui (format "2026-10-16")
   const aujourdhui = new Date().toISOString().slice(0, 10)
   const debut = ref(aujourdhui.slice(0, 8) + '01')
   const fin = ref(aujourdhui)
@@ -30,9 +29,7 @@
     </form>
   </div>
 
-  <!-- v-if : on attend que les donnees soient arrivees avant d'afficher -->
   <template v-if="dashboard">
-    <!-- 1. Temps total par developpeur sur la periode -->
     <div class="carte">
       <h3>Temps par développeur</h3>
       <table>
@@ -54,7 +51,6 @@
       </p>
     </div>
 
-    <!-- 2. Projets en depassement -->
     <div class="carte">
       <h3>Projets en dépassement</h3>
       <table>
@@ -84,7 +80,6 @@
       </p>
     </div>
 
-    <!-- 3. Projets clotures recemment (30 derniers jours) -->
     <div class="carte">
       <h3>Projets clôturés récemment</h3>
       <table>

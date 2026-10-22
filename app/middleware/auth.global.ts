@@ -2,7 +2,7 @@ export default defineNuxtRouteMiddleware((to) => {
   const { token, estResponsable } = useAuth()
 
   if (to.path === '/login') return // la connexion est publique
-  if (!token.value) return navigateTo('/login') // pas connecte -> connexion
+  if (!token.value) return navigateTo('/login')
 
   // Mauvais role -> retour a l'accueil
   if (to.path.startsWith('/resp') && !estResponsable.value)

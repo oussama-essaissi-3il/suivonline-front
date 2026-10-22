@@ -4,7 +4,6 @@
 
   const { login } = useAuth()
 
-  // ref = variable REACTIVE : quand elle change, l'affichage se met a jour
   const email = ref('')
   const motPasse = ref('')
   const erreur = ref('')
@@ -15,7 +14,7 @@
       await login(email.value, motPasse.value)
       navigateTo('/')
     } catch (e) {
-      erreur.value = messageErreur(e) // "Email ou mot de passe incorrect"
+      erreur.value = messageErreur(e)
     }
   }
 </script>
@@ -24,7 +23,6 @@
   <div class="contenu" style="max-width: 400px; margin-top: 100px">
     <div class="carte">
       <h1>SuivOnline</h1>
-      <!-- .prevent = empeche le rechargement de la page a l'envoi du formulaire -->
       <form
         @submit.prevent="seConnecter"
         style="flex-direction: column; align-items: stretch"

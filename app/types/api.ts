@@ -3,7 +3,6 @@
 export type Role = 'DEVELOPPEUR' | 'RESPONSABLE'
 export type StatutProjet = 'EN_COURS' | 'CLOTURE'
 
-// UtilisateurDto
 export interface Utilisateur {
   id: number
   nom: string
@@ -12,13 +11,11 @@ export interface Utilisateur {
   role: Role
 }
 
-// LoginResponse
 export interface LoginResponse {
   token: string
   utilisateur: Utilisateur
 }
 
-// ServeurDto
 export interface Serveur {
   id: number
   nom: string
@@ -26,7 +23,6 @@ export interface Serveur {
   nbProjets: number
 }
 
-// ProjetDto
 export interface Projet {
   id: number
   nom: string
@@ -40,7 +36,6 @@ export interface Projet {
   enDepassement: boolean
 }
 
-// ContributionDto
 export interface Contribution {
   id: number
   dureeMinutes: number
@@ -51,7 +46,6 @@ export interface Contribution {
   utilisateurNomComplet: string
 }
 
-// TempsDeveloppeurDto
 export interface TempsDeveloppeur {
   utilisateurId: number
   nom: string
@@ -59,7 +53,6 @@ export interface TempsDeveloppeur {
   totalMinutes: number
 }
 
-// ProjetDetailDto
 export interface ProjetDetail {
   projet: Projet
   developpeurs: Utilisateur[]
@@ -67,7 +60,6 @@ export interface ProjetDetail {
   tempsParDeveloppeur: TempsDeveloppeur[]
 }
 
-// RecapProjetDto + RecapDto
 export interface RecapProjet {
   projetId: number
   projetNom: string
@@ -78,7 +70,6 @@ export interface Recap {
   totalMinutes: number
 }
 
-// DashboardDto
 export interface Dashboard {
   debut: string
   fin: string

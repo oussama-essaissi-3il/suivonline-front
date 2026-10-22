@@ -11,7 +11,6 @@
   const aujourdhui = new Date().toISOString().slice(0, 10)
   const form = ref({ projetId: 0, dureeMinutes: 60, dateContrib: aujourdhui })
 
-  // On ne propose que les projets EN COURS (regle du sujet)
   const projetsActifs = computed(() =>
     mesProjets.value.filter((p) => p.statut === 'EN_COURS'),
   )
@@ -32,7 +31,7 @@
       form.value = { projetId: 0, dureeMinutes: 60, dateContrib: aujourdhui }
       await charger()
     } catch (e) {
-      erreur.value = messageErreur(e) // ex : "Ce projet est cloture"
+      erreur.value = messageErreur(e)
     }
   }
 
@@ -42,7 +41,6 @@
 <template>
   <h1>Mes contributions</h1>
 
-  <!-- Declarer une contribution -->
   <div class="carte">
     <h3>Déclarer du temps</h3>
     <form @submit.prevent="declarer">
@@ -77,12 +75,11 @@
     <p v-if="succes" style="color: var(--vert)">{{ succes }}</p>
   </div>
 
-  <!-- Liste triable -->
   <div class="carte">
     <form>
       <label
         >Trier par
-        <!-- @change : a chaque changement de tri, on recharge depuis le back -->
+
         <select v-model="tri" @change="charger">
           <option value="date">Date</option>
           <option value="projet">Projet</option>
